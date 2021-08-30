@@ -21,3 +21,4 @@ public:
         return result == INT32_MAX ? 0 : result;
     }
 };
+ 
