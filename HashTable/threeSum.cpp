@@ -14,7 +14,7 @@ public:
         sort(nums.begin(), nums.end());
         for (int i = 0; i < nums.size(); i++)
         {
-            //去重
+            //去重： nums[i]不变 nums[right]也是指向最后一个元素 若能找到 那么肯定 nums[left]不变，因此要去重
             if (i > 0 && nums[i] == nums[i - 1])
             {
                 continue;
