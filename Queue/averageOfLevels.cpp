@@ -11,33 +11,30 @@
  */
 class Solution {
 public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
-        vector<vector<int>> result;
+    vector<double> averageOfLevels(TreeNode* root) {
         queue<TreeNode*> que;
-
-        if (root == nullptr)
-        {
-            return result;
-        }
-        else
-        {
-            que.push(root);
-        }
+        vector<double> result;
+        if (root == nullptr) return result;
+        que.push(root);
 
         while(!que.empty())
         {
             int size = que.size();
+            double sum = 0;
             vector<int> vec;
 
             for (int i = 0; i < size; i++)
             {
                 TreeNode* node = que.front();
-                que.pop();
                 vec.push_back(node->val);
+                que.pop();
+                sum += vec[i];
+                
                 if (node->left) que.push(node->left);
                 if (node->right) que.push(node->right);
             }
-            result.push_back(vec);
+            result.push_back(sum / size);
+
         }
         return result;
     }
